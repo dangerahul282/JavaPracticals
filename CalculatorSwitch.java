@@ -1,50 +1,50 @@
-package com.java.intro;
 import java.util.Scanner;
-public class CalculatorSwitch{
-// Calculator using switch case
-		    char operator;
-		    Double number1, number2, result;
-		    Scanner input = new Scanner(System.in); 
-		    System.out.println("Choose an operator: +, -, *, or /");
-		    operator = input.next().charAt(0);
-		    
-		    System.out.println("Enter first number");
-		    number1 = input.nextDouble();
 
-		    System.out.println("Enter second number");
-		    number2 = input.nextDouble();
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.println("Simple Calculator");
+        System.out.println("Available Operations:");
+        System.out.println("1. Addition (+)");
+        System.out.println("2. Subtraction (-)");
+        System.out.println("3. Multiplication (*)");
+        System.out.println("4. Division (/)");
+        
+        System.out.print("Enter your choice (1/2/3/4): ");
+        int choice = input.nextInt();
+        
+        System.out.print("Enter the first number: ");
+        double num1 = input.nextDouble();
+        
+        System.out.print("Enter the second number: ");
+        double num2 = input.nextDouble();
+        
+        double result = 0;
 
-		    switch (operator) {
-
-		      
-		      case '+':
-		        result = number1 + number2;
-		        System.out.println(number1 + " + " + number2 + " = " + result);
-		        break;
-		     
-		      case '-':
-		        result = number1 - number2;
-		        System.out.println(number1 + " - " + number2 + " = " + result);
-		        break;
-		  
-		      case '*':
-		        result = number1 * number2;
-		        System.out.println(number1 + " * " + number2 + " = " + result);
-		        break;
-		        
-		      case '/':
-		        result = number1 / number2;
-		        System.out.println(number1 + " / " + number2 + " = " + result);
-		        break;
-
-		      default:
-		        System.out.println("Invalid operator!");
-		        break;
-		    }
-		    
-
-		  
-
-	}
-
+        switch (choice) {
+            case 1:
+                result = num1 + num2;
+                System.out.println("Result: " + result);
+                break;
+            case 2:
+                result = num1 - num2;
+                System.out.println("Result: " + result);
+                break;
+            case 3:
+                result = num1 * num2;
+                System.out.println("Result: " + result);
+                break;
+            case 4:
+                if (num2 != 0) {
+                    result = num1 / num2;
+                    System.out.println("Result: " + result);
+                } else {
+                    System.out.println("Error: Division by zero is not allowed.");
+                }
+                break;
+            default:
+                System.out.println("Invalid choice. Please select a valid operation (1/2/3/4).");
+        }
+    }
 }
